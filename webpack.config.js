@@ -24,6 +24,7 @@ module.exports = {
   output: {
     filename: '[name].[hash].js',
     publicPath: 'http://localhost:8080/',
+    libraryTarget: 'umd'
   },
   // loaders
   module: {
@@ -43,10 +44,10 @@ module.exports = {
       }
     ]
   },
-  // externals: {
-  //   react: reactExternal,
-  //   'react-dom': reactDOMExternal,
-  // },
+  externals: {
+    react: reactExternal,
+    'react-dom': reactDOMExternal,
+  },
   resolve: {
     extensions: ['.js', '.jsx']
   },
