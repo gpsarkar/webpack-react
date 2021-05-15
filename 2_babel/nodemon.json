@@ -1,0 +1,7 @@
+{
+  "verbose": true,
+  "ignore": ["node_modules/*"],
+  "watch": "./src/**/*",
+  "ext": "js,jsx,scss",
+  "delay": 5000
+}
