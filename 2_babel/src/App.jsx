@@ -1,12 +1,17 @@
 import React from 'react';
-import MainBg from './assets/main_bg.jpg'
 import './style.scss';
 
 const App = () => {
+  const source = 'wind';
+
+  const test = () => {
+    const test = param === true || throw new Error("Falsy!");
+  }
+  
   return (
-    <div class="layout">
-      <div class="hero">
-        <h1>Harness the power</h1>
+    <div className="layout">
+      <div className="hero">
+        <h1>{`Harness the power of ${source}`}</h1>
       </div>
     </div>
   )

@@ -1,25 +1,13 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-
-const reactDOMExternal = {
-  root: 'ReactDOM',
-  commonjs2: 'react-dom',
-  commonjs: 'react-dom',
-  amd: 'react-dom'
-};
-
-const reactExternal = {
-  root: 'React',
-  commonjs2: 'react',
-  commonjs: 'react',
-  amd: 'react'
-};
+const webpack = require('webpack');
 
 module.exports = {
   mode: 'development',
   entry: path.join(__dirname, 'src', 'index'),
   output: {
     path: path.join(__dirname, 'public'),
+    publicPath: '/',
     filename: "bundle.js",
     chunkFilename: '[name].[chunkhash].js',
     libraryTarget: 'umd'
@@ -34,18 +22,7 @@ module.exports = {
         exclude: [
           path.resolve(__dirname, 'node_modules')
         ],
-        use: [
-          {
-            loader: 'babel-loader',
-            options: {
-              presets:
-                [
-                  "@babel/env", 
-                  "@babel/preset-react"
-                ]
-            }
-          }
-        ]
+        use: 'babel-loader'
       },
       {
         test: /\.(css|scss)$/,
@@ -64,10 +41,8 @@ module.exports = {
   plugins: [ 
     new HtmlWebpackPlugin({
       template: 'index.html'
-    })
-  ],  
-  externals: {
-    react: reactExternal,
-    'react-dom': reactDOMExternal,
-  }
+    }),
+    // new webpack.HotModuleReplacementPlugin(),
+    // new webpack.NoEmitOnErrorsPlugin(),
+  ]
 };
