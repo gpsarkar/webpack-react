@@ -1,4 +1,4 @@
 # webpack-react
 
-Webpack - webpack.js.org/
-Babel - https://babeljs.io
+ * Webpack - https://webpack.js.org/
+ * Babel - https://babeljs.io
